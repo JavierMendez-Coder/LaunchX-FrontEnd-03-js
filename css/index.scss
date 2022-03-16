@@ -3,14 +3,16 @@
   --base-color: #fe1a55;
   --shadow-color: #ca215a;
   --deep-shadow-color: #491556;
+  --background-color: #0e0b4d;
 }
 
 body {
   display: flex;
   justify-content: center;
+  background-color: var(--background-color);
 }
 
-.container {
+.device {
   position: relative;
   width: 80%;
   height: 98vh;
@@ -18,19 +20,8 @@ body {
   justify-content: center;
 }
 
-.left {
-  width: 46.25%;
-  height: 98.5%;
-  background-color: var(--shadow-color);
-  align-self: flex-end;
-  overflow: hidden;
-  border-top-left-radius: 5% 2.5%;
-  border-bottom-left-radius: 5% 2.5%;
-  border-bottom-right-radius: 5% 2.5%;
-}
-
 .middle {
-  width: 7.5%;
+  width: 6%;
   height: 96%;
   background-color: var(--base-color);
   display: grid;
@@ -50,7 +41,7 @@ body {
     grid-row: 1 / 3;
     background-color: var(--deep-shadow-color);
   }
-  
+
   .bottomShadow {
     grid-row: 2;
     grid-column: 1 / -1;
@@ -59,13 +50,84 @@ body {
   }
 }
 
-.right {
-  width: 46.25%;
-  height: 85%;
-  background-color: var(--base-color);
+// ------------------ DEVICE SCREENS -------------------
+
+.container {
+  width: 47%;
+  height: 98.5%;
   align-self: flex-end;
   overflow: hidden;
-  border-top-right-radius: 5% 2.5%;
-  border-bottom-right-radius: 5% 2.5%;
   border-bottom-left-radius: 5% 2.5%;
+  border-bottom-right-radius: 5% 2.5%;
+  display: grid;
+  grid-template-rows: 25fr 70fr 5fr;
+  // grid-template-rows: 15fr 90fr 5fr;
+}
+
+.shadow {
+  background-color: var(--deep-shadow-color);
+  grid-row: 3 / span 1;
+  margin-top: -5%;
+}
+
+.frontalFace {
+  grid-row: 1 / -2;
+  border-bottom-left-radius: 5% 2.5%;
+  border-bottom-right-radius: 5% 2.5%;
+}
+
+.left {
+  border-top-left-radius: 5% 2.5%;
+
+  .frontalFace {
+    background-color: var(--shadow-color);
+    display: grid;
+    grid-template-rows: repeat(100, 1%);
+    grid-template-columns: repeat(100, 1%);
+  }
+
+  .top {
+    grid-row: 1 / span 12;
+    grid-column: 1 / -1;
+    background-color: var(--base-color);
+
+    .trapezoid {
+      position: relative;
+      top: -30%;
+      border-top: 14vh solid var(--base-color);
+      border-right: 25vh solid transparent;
+      height: 0;
+      width: 25%;
+    }
+
+    .trapezoidShadow {
+      position: relative;
+      top: 120%;
+      border-top: 14vh solid var(--deep-shadow-color);
+      border-right: 25vh solid transparent;
+      height: 0;
+      width: 25%;
+    }
+  }
+
+  .dropShadow {
+    grid-row: 13 / span 3;
+    grid-column: 1 / -1;
+    background-color: var(--deep-shadow-color);
+  }
+
+  .lines {
+    grid-area: 5 / 4 / span 94 / span 94;
+    border: 8px solid var(--deep-shadow-color);
+    border-radius: 5% / 3%;
+  }
+}
+
+.right {
+  .frontalFace {
+    border-top-right-radius: 5% 2.5%;
+    grid-row: 2 / -2;
+    background-color: var(--base-color);
+    display: grid;
+  }
 }
