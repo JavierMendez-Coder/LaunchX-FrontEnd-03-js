@@ -4,6 +4,9 @@
   --shadow-color: #ca215a;
   --deep-shadow-color: #491556;
   --background-color: #0e0b4d;
+  --blue-button: #00abf6;
+  --green-button: #31f554;
+  --orange-button: #fb8e55;
 }
 
 body {
@@ -18,7 +21,7 @@ body {
 
 .device {
   position: relative;
-  width: 80%;
+  width: 70%;
   height: 98vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,6 +29,8 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .middle {
@@ -133,7 +138,7 @@ body {
   border-top: 14vh solid var(--deep-shadow-color);
   border-right: 25vh solid transparent;
   height: 0;
-  width: 25%;
+  width: 27%;
 }
 
 .left .dropShadow {
@@ -152,6 +157,81 @@ body {
   grid-area: 5 / 4 / span 94 / span 94;
   border: 8px solid var(--deep-shadow-color);
   border-radius: 5% / 3%;
+}
+
+.left .bottom {
+  -ms-grid-row: 75;
+  -ms-grid-row-span: 22;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 90;
+  grid-area: 75 / 6 / span 22 / span 90;
+  background-color: rgba(255, 255, 255, 0.25);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[84];
+      grid-template-columns: repeat(84, 1fr);
+  -ms-grid-rows: (1fr)[30];
+      grid-template-rows: repeat(30, 1fr);
+}
+
+.left .bottom .circleButton {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 10;
+  grid-area: 4 / 6 / span 10 / span 10;
+  background-color: var(--blue-button);
+  border-radius: 100%;
+}
+
+.left .bottom .circleButtonS {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 10;
+  grid-area: 5 / 7 / span 10 / span 10;
+  background-color: var(--deep-shadow-color);
+  border-radius: 100%;
+}
+
+.left .bottom .flatButtonL {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 20;
+  -ms-grid-column-span: 10;
+  grid-area: 8 / 20 / span 2 / span 10;
+  background-color: var(--green-button);
+  border-radius: 18% / 82%;
+}
+
+.left .bottom .flatButtonLS {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 21;
+  -ms-grid-column-span: 10;
+  grid-area: 9 / 21 / span 2 / span 10;
+  background-color: var(--deep-shadow-color);
+  border-radius: 18% / 82%;
+}
+
+.left .bottom .flatButtonR {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 34;
+  -ms-grid-column-span: 10;
+  grid-area: 8 / 34 / span 2 / span 10;
+  background-color: var(--orange-button);
+  border-radius: 18% / 82%;
+}
+
+.left .bottom .flatButtonRS {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 35;
+  -ms-grid-column-span: 10;
+  grid-area: 9 / 35 / span 2 / span 10;
+  background-color: var(--deep-shadow-color);
+  border-radius: 18% / 82%;
 }
 
 .right .frontalFace {

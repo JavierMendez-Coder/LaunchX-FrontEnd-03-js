@@ -4,6 +4,9 @@
   --shadow-color: #ca215a;
   --deep-shadow-color: #491556;
   --background-color: #0e0b4d;
+  --blue-button: #00abf6;
+  --green-button: #31f554;
+  --orange-button: #fb8e55;
 }
 
 body {
@@ -14,10 +17,11 @@ body {
 
 .device {
   position: relative;
-  width: 80%;
+  width: 70%;
   height: 98vh;
   display: flex;
   justify-content: center;
+  transform: scale(1);
 }
 
 .middle {
@@ -61,7 +65,6 @@ body {
   border-bottom-right-radius: 5% 2.5%;
   display: grid;
   grid-template-rows: 25fr 70fr 5fr;
-  // grid-template-rows: 15fr 90fr 5fr;
 }
 
 .shadow {
@@ -106,7 +109,7 @@ body {
       border-top: 14vh solid var(--deep-shadow-color);
       border-right: 25vh solid transparent;
       height: 0;
-      width: 25%;
+      width: 27%;
     }
   }
 
@@ -120,6 +123,50 @@ body {
     grid-area: 5 / 4 / span 94 / span 94;
     border: 8px solid var(--deep-shadow-color);
     border-radius: 5% / 3%;
+  }
+
+  .bottom {
+    grid-area: 75 / 6 / span 22 / span 90;
+    background-color: rgba($color: #fff, $alpha: .25);
+    display: grid;
+    grid-template-columns: repeat(84, 1fr);
+    grid-template-rows: repeat(30, 1fr);
+
+    .circleButton {
+      grid-area: 4 / 6 / span 10 / span 10;
+      background-color: var(--blue-button);
+      border-radius: 100%;
+    }
+
+    .circleButtonS {
+      grid-area: 5 / 7 / span 10 / span 10;
+      background-color: var(--deep-shadow-color);
+      border-radius: 100%;
+    }
+
+    .flatButtonL {
+      grid-area: 8 / 20 / span 2 / span 10;
+      background-color: var(--green-button);
+      border-radius: 18% / 82%;
+    }
+
+    .flatButtonLS {
+      grid-area: 9 / 21 / span 2 / span 10;
+      background-color: var(--deep-shadow-color);
+      border-radius: 18% / 82%;
+    }
+
+    .flatButtonR {
+      grid-area: 8 / 34 / span 2 / span 10;
+      background-color: var(--orange-button);
+      border-radius: 18% / 82%;
+    }
+
+    .flatButtonRS {
+      grid-area: 9 / 35 / span 2 / span 10;
+      background-color: var(--deep-shadow-color);
+      border-radius: 18% / 82%;
+    }
   }
 }
 
