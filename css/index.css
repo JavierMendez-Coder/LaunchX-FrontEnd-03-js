@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 :root {
-  --highlighted-color: #fb9173;
+  --base-highlighted-color: #fb9173;
   --base-color: #fe1a55;
-  --shadow-color: #ca215a;
-  --deep-shadow-color: #491556;
+  --base-shadow-color: #ca215a;
+  --base-deep-shadow-color: #491556;
   --background-color: #0e0b4d;
-  --blue-button: #00abf6;
-  --green-button: #31f554;
-  --orange-button: #fb8e55;
+  --blue: #00abf6;
+  --green: #31f554;
+  --orange: #fb8e55;
+  --yellow: #f9ef61;
+  --black: #010950;
+  --gray: #142b5b;
+  --white: #f3f4e6;
 }
 
 body {
@@ -17,6 +22,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: var(--background-color);
+  font-family: "Press Start 2P", cursivo;
 }
 
 .device {
@@ -53,7 +59,7 @@ body {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1 / 3;
-  background-color: var(--highlighted-color);
+  background-color: var(--base-highlighted-color);
 }
 
 .middle .shadow {
@@ -63,14 +69,14 @@ body {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1 / 3;
-  background-color: var(--deep-shadow-color);
+  background-color: var(--base-deep-shadow-color);
 }
 
 .middle .bottomShadow {
   -ms-grid-row: 2;
   grid-row: 2;
   grid-column: 1 / -1;
-  background-color: var(--deep-shadow-color);
+  background-color: var(--base-deep-shadow-color);
   border-radius: 50%;
 }
 
@@ -88,7 +94,7 @@ body {
 }
 
 .shadow {
-  background-color: var(--deep-shadow-color);
+  background-color: var(--base-deep-shadow-color);
   -ms-grid-row: 3;
   -ms-grid-row-span: 1;
   grid-row: 3 / span 1;
@@ -106,7 +112,7 @@ body {
 }
 
 .left .frontalFace {
-  background-color: var(--shadow-color);
+  background-color: var(--base-shadow-color);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: (1%)[100];
@@ -135,7 +141,7 @@ body {
 .left .top .trapezoidShadow {
   position: relative;
   top: 120%;
-  border-top: 14vh solid var(--deep-shadow-color);
+  border-top: 14vh solid var(--base-deep-shadow-color);
   border-right: 25vh solid transparent;
   height: 0;
   width: 27%;
@@ -146,7 +152,7 @@ body {
   -ms-grid-row-span: 3;
   grid-row: 13 / span 3;
   grid-column: 1 / -1;
-  background-color: var(--deep-shadow-color);
+  background-color: var(--base-deep-shadow-color);
 }
 
 .left .lines {
@@ -155,7 +161,7 @@ body {
   -ms-grid-column: 4;
   -ms-grid-column-span: 94;
   grid-area: 5 / 4 / span 94 / span 94;
-  border: 8px solid var(--deep-shadow-color);
+  border: 1vh solid var(--base-deep-shadow-color);
   border-radius: 5% / 3%;
 }
 
@@ -165,73 +171,483 @@ body {
   -ms-grid-column: 6;
   -ms-grid-column-span: 90;
   grid-area: 75 / 6 / span 22 / span 90;
-  background-color: rgba(255, 255, 255, 0.25);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[84];
       grid-template-columns: repeat(84, 1fr);
-  -ms-grid-rows: (1fr)[30];
-      grid-template-rows: repeat(30, 1fr);
+  -ms-grid-rows: (1fr)[60];
+      grid-template-rows: repeat(60, 1fr);
 }
 
 .left .bottom .circleButton {
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 10;
-  -ms-grid-column: 6;
-  -ms-grid-column-span: 10;
-  grid-area: 4 / 6 / span 10 / span 10;
-  background-color: var(--blue-button);
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 26;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 13;
+  grid-area: 6 / 5 / span 26 / span 13;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+}
+
+.left .bottom .circleButton .buttonSurface {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 16;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 16;
+  grid-area: 2 / 2 / span 16 / span 16;
+  background-color: var(--blue);
   border-radius: 100%;
 }
 
-.left .bottom .circleButtonS {
-  -ms-grid-row: 5;
-  -ms-grid-row-span: 10;
-  -ms-grid-column: 7;
-  -ms-grid-column-span: 10;
-  grid-area: 5 / 7 / span 10 / span 10;
-  background-color: var(--deep-shadow-color);
+.left .bottom .circleButton .buttonShadow {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 16;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 16;
+  grid-area: 4 / 4 / span 16 / span 16;
+  background-color: var(--base-deep-shadow-color);
   border-radius: 100%;
+}
+
+.left .bottom .circleButton:hover .buttonSurface {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 16;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 16;
+  grid-area: 3 / 3 / span 16 / span 16;
 }
 
 .left .bottom .flatButtonL {
-  -ms-grid-row: 8;
-  -ms-grid-row-span: 2;
+  -ms-grid-row: 14;
+  -ms-grid-row-span: 10;
   -ms-grid-column: 20;
-  -ms-grid-column-span: 10;
-  grid-area: 8 / 20 / span 2 / span 10;
-  background-color: var(--green-button);
+  -ms-grid-column-span: 13;
+  grid-area: 14 / 20 / span 10 / span 13;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+}
+
+.left .bottom .flatButtonL .buttonSurface {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 16;
+  grid-area: 5 / 2 / span 10 / span 16;
+  background-color: var(--green);
   border-radius: 18% / 82%;
 }
 
-.left .bottom .flatButtonLS {
-  -ms-grid-row: 9;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 21;
-  -ms-grid-column-span: 10;
-  grid-area: 9 / 21 / span 2 / span 10;
-  background-color: var(--deep-shadow-color);
+.left .bottom .flatButtonL .buttonShadow {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 16;
+  grid-area: 8 / 4 / span 10 / span 16;
+  background-color: var(--base-deep-shadow-color);
   border-radius: 18% / 82%;
+}
+
+.left .bottom .flatButtonL:hover .buttonSurface {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 16;
+  grid-area: 6 / 3 / span 10 / span 16;
 }
 
 .left .bottom .flatButtonR {
-  -ms-grid-row: 8;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 34;
-  -ms-grid-column-span: 10;
-  grid-area: 8 / 34 / span 2 / span 10;
-  background-color: var(--orange-button);
+  -ms-grid-row: 14;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 35;
+  -ms-grid-column-span: 13;
+  grid-area: 14 / 35 / span 10 / span 13;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[20];
+      grid-template-columns: repeat(20, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+}
+
+.left .bottom .flatButtonR .buttonSurface {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 16;
+  grid-area: 5 / 2 / span 10 / span 16;
+  background-color: var(--orange);
   border-radius: 18% / 82%;
 }
 
-.left .bottom .flatButtonRS {
-  -ms-grid-row: 9;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 35;
-  -ms-grid-column-span: 10;
-  grid-area: 9 / 35 / span 2 / span 10;
-  background-color: var(--deep-shadow-color);
+.left .bottom .flatButtonR .buttonShadow {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 16;
+  grid-area: 8 / 4 / span 10 / span 16;
+  background-color: var(--base-deep-shadow-color);
   border-radius: 18% / 82%;
+}
+
+.left .bottom .flatButtonR:hover .buttonSurface {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 16;
+  grid-area: 6 / 3 / span 10 / span 16;
+}
+
+.left .bottom .deviceTag {
+  -ms-grid-row: 38;
+  -ms-grid-row-span: 18;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 37;
+  grid-area: 38 / 5 / span 18 / span 37;
+  border-radius: 3% / 15%;
+  background-color: var(--yellow);
+}
+
+.left .bottom .dpadGrid {
+  -ms-grid-row: 12;
+  -ms-grid-row-span: 44;
+  -ms-grid-column: 59;
+  -ms-grid-column-span: 22;
+  grid-area: 12 / 59 / span 44 / span 22;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 50fr 1fr;
+      grid-template-rows: 1fr 50fr 1fr;
+  -ms-grid-columns: 1fr 50fr 1fr;
+      grid-template-columns: 1fr 50fr 1fr;
+}
+
+.left .bottom .dpadGrid .dpadSurface {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1 / span 2 / span 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+      grid-template-rows: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+  -ms-grid-columns: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+      grid-template-columns: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+}
+
+.left .bottom .dpadGrid .dpadSurface .middlePad {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 3 / span 2 / span 2;
+  background-color: var(--black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .bottom .dpadGrid .dpadSurface .middlePad .figCircle {
+  width: 65%;
+  height: 65%;
+  border-radius: 100%;
+  background-color: var(--gray);
+}
+
+.left .bottom .dpadGrid .dpadSurface .topButton {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 3 / span 2 / span 2;
+  border-top-left-radius: 10% 18%;
+  border-top-right-radius: 10% 18%;
+  background-color: var(--black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .bottom .dpadGrid .dpadSurface .topButton .figTriangle {
+  width: 1%;
+  height: 0;
+  border-bottom: 2vh solid var(--gray);
+  border-left: 1.5vh solid rgba(0, 0, 0, 0);
+  border-right: 1.5vh solid rgba(0, 0, 0, 0);
+}
+
+.left .bottom .dpadGrid .dpadSurface .topButton:hover {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 4 / span 1 / span 2;
+}
+
+.left .bottom .dpadGrid .dpadSurface .topButton:hover .figTriangle {
+  border-bottom-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .rightButton {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 5 / span 2 / span 2;
+  border-top-right-radius: 18% 10%;
+  border-bottom-right-radius: 18% 10%;
+  background-color: var(--black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .bottom .dpadGrid .dpadSurface .rightButton .figTriangle {
+  width: 1%;
+  height: 0;
+  border-top: 1.5vh solid rgba(0, 0, 0, 0);
+  border-left: 2vh solid var(--gray);
+  border-bottom: 1.5vh solid rgba(0, 0, 0, 0);
+}
+
+.left .bottom .dpadGrid .dpadSurface .rightButton:hover {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: 4 / 5 / span 2 / span 3;
+}
+
+.left .bottom .dpadGrid .dpadSurface .rightButton:hover .figTriangle {
+  border-left-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .bottomButton {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: 5 / 3 / span 2 / span 2;
+  border-bottom-left-radius: 10% 18%;
+  border-bottom-right-radius: 10% 18%;
+  background-color: var(--black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .bottom .dpadGrid .dpadSurface .bottomButton .figTriangle {
+  width: 1%;
+  height: 0;
+  border-top: 2vh solid var(--gray);
+  border-left: 1.5vh solid rgba(0, 0, 0, 0);
+  border-right: 1.5vh solid rgba(0, 0, 0, 0);
+}
+
+.left .bottom .dpadGrid .dpadSurface .bottomButton:hover {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: 5 / 4 / span 3 / span 2;
+}
+
+.left .bottom .dpadGrid .dpadSurface .bottomButton:hover .figTriangle {
+  border-top-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .leftButton {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 3 / 1 / span 2 / span 2;
+  border-top-left-radius: 18% 10%;
+  border-bottom-left-radius: 18% 10%;
+  background-color: var(--black);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .bottom .dpadGrid .dpadSurface .leftButton .figTriangle {
+  width: 1%;
+  height: 0;
+  border-top: 1.5vh solid rgba(0, 0, 0, 0);
+  border-right: 2vh solid var(--gray);
+  border-bottom: 1.5vh solid rgba(0, 0, 0, 0);
+}
+
+.left .bottom .dpadGrid .dpadSurface .leftButton:hover {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 4 / 2 / span 2 / span 1;
+}
+
+.left .bottom .dpadGrid .dpadSurface .leftButton:hover .figTriangle {
+  border-right-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadShadow {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 2 / span 2 / span 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+      grid-template-rows: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+  -ms-grid-columns: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+      grid-template-columns: 1fr 8fr 1fr 10fr 1fr 8fr 1fr;
+}
+
+.left .bottom .dpadGrid .dpadShadow .horizontalShadow {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 6;
+  grid-area: 4 / 2 / span 2 / span 6;
+  border-radius: 5% / 10%;
+  background-color: var(--base-deep-shadow-color);
+}
+
+.left .bottom .dpadGrid .dpadShadow .verticalShadow {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 6;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 4 / span 6 / span 2;
+  border-radius: 10% / 5%;
+  background-color: var(--base-deep-shadow-color);
+}
+
+.left .borderShadow {
+  -ms-grid-row: 33;
+  -ms-grid-row-span: 41;
+  -ms-grid-column: 11;
+  -ms-grid-column-span: 82;
+  grid-area: 33 / 11 / span 41 / span 82;
+  border-radius: 3% / 5%;
+  border-bottom-left-radius: 15% 20%;
+  background-color: var(--base-deep-shadow-color);
+}
+
+.left .border {
+  -ms-grid-row: 32;
+  -ms-grid-row-span: 41;
+  -ms-grid-column: 10;
+  -ms-grid-column-span: 82;
+  grid-area: 32 / 10 / span 41 / span 82;
+  border-radius: 3% / 5%;
+  border-bottom-left-radius: 15% 20%;
+  background-color: var(--white);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 0.2fr 10fr 2fr;
+      grid-template-rows: 1fr 0.2fr 10fr 2fr;
+  -ms-grid-columns: 1fr 0.5fr 30fr 1fr;
+      grid-template-columns: 1fr 0.5fr 30fr 1fr;
+}
+
+.left .border .screen {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: 3 / 3;
+  background-color: var(--blue);
+  border-radius: 3% / 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+.left .border .screen img {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.left .border .screenShadow {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 2 / span 2 / span 2;
+  background-color: var(--base-deep-shadow-color);
+  border-radius: 3% / 5%;
+}
+
+.left .border .bottomMenu {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: 4 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .border .bottomMenu .searchBar {
+  text-align: center;
+  width: 40%;
+  height: 50%;
+  border: none;
+  border-bottom: 0.2vh solid var(--black);
+  background-color: var(--white);
+  color: var(--black);
+  outline: none;
+  font-size: 1.5vh;
+  font-family: "Press Start 2P", cursivo;
 }
 
 .right .frontalFace {
@@ -240,5 +656,17 @@ body {
   background-color: var(--base-color);
   display: -ms-grid;
   display: grid;
+}
+
+.black {
+  background-color: black;
+}
+
+.gray {
+  background-color: #212121;
+}
+
+.white {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 /*# sourceMappingURL=index.css.map */

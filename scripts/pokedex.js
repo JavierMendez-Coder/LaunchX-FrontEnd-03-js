@@ -18,3 +18,12 @@ const loadImage = (imageUrl = "") => {
   const pokemonImg = document.getElementById("pokemonImg");
   pokemonImg.src = imageUrl;
 };
+
+const pokemonName = document.getElementById("pokemonName");
+
+pokemonName.addEventListener("keydown", function (event) {
+  if (event.code === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchButton").click();
+  }
+});
