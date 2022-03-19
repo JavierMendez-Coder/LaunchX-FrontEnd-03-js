@@ -1,17 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap");
 :root {
   --base-highlighted-color: #fb9173;
   --base-color: #fe1a55;
   --base-shadow-color: #ca215a;
   --base-deep-shadow-color: #491556;
   --background-color: #0e0b4d;
-  --blue: #00abf6;
-  --green: #31f554;
   --orange: #fb8e55;
   --yellow: #f9ef61;
-  --black: #010950;
-  --gray: #142b5b;
+  --green: #31f554;
+  --cyan: #01d7fd;
+  --dark-cyan: #01b3d5;
+  --blue: #00abf6;
   --white: #f3f4e6;
+  --gray: #142b5b;
+  --black: #010950;
+  --normal-font: "Poppins";
+  --retro-font: "Press Start 2P", cursivo;
 }
 
 body {
@@ -22,7 +26,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: var(--background-color);
-  font-family: "Press Start 2P", cursivo;
+  font-family: var(--normal-font);
 }
 
 .device {
@@ -396,7 +400,11 @@ body {
   border-right: 1.5vh solid rgba(0, 0, 0, 0);
 }
 
-.left .bottom .dpadGrid .dpadSurface .topButton:hover {
+.left .bottom .dpadGrid .dpadSurface .topButton:hover .figTriangle {
+  border-bottom-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .topButton.pressed {
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   -ms-grid-column: 4;
@@ -404,7 +412,7 @@ body {
   grid-area: 2 / 4 / span 1 / span 2;
 }
 
-.left .bottom .dpadGrid .dpadSurface .topButton:hover .figTriangle {
+.left .bottom .dpadGrid .dpadSurface .topButton.pressed .figTriangle {
   border-bottom-color: var(--white);
 }
 
@@ -436,7 +444,11 @@ body {
   border-bottom: 1.5vh solid rgba(0, 0, 0, 0);
 }
 
-.left .bottom .dpadGrid .dpadSurface .rightButton:hover {
+.left .bottom .dpadGrid .dpadSurface .rightButton:hover .figTriangle {
+  border-left-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .rightButton.pressed {
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 5;
@@ -444,7 +456,7 @@ body {
   grid-area: 4 / 5 / span 2 / span 3;
 }
 
-.left .bottom .dpadGrid .dpadSurface .rightButton:hover .figTriangle {
+.left .bottom .dpadGrid .dpadSurface .rightButton.pressed .figTriangle {
   border-left-color: var(--white);
 }
 
@@ -476,7 +488,11 @@ body {
   border-right: 1.5vh solid rgba(0, 0, 0, 0);
 }
 
-.left .bottom .dpadGrid .dpadSurface .bottomButton:hover {
+.left .bottom .dpadGrid .dpadSurface .bottomButton:hover .figTriangle {
+  border-top-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .bottomButton.pressed {
   -ms-grid-row: 5;
   -ms-grid-row-span: 3;
   -ms-grid-column: 4;
@@ -484,7 +500,7 @@ body {
   grid-area: 5 / 4 / span 3 / span 2;
 }
 
-.left .bottom .dpadGrid .dpadSurface .bottomButton:hover .figTriangle {
+.left .bottom .dpadGrid .dpadSurface .bottomButton.pressed .figTriangle {
   border-top-color: var(--white);
 }
 
@@ -516,7 +532,11 @@ body {
   border-bottom: 1.5vh solid rgba(0, 0, 0, 0);
 }
 
-.left .bottom .dpadGrid .dpadSurface .leftButton:hover {
+.left .bottom .dpadGrid .dpadSurface .leftButton:hover .figTriangle {
+  border-right-color: var(--white);
+}
+
+.left .bottom .dpadGrid .dpadSurface .leftButton.pressed {
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
@@ -524,7 +544,7 @@ body {
   grid-area: 4 / 2 / span 2 / span 1;
 }
 
-.left .bottom .dpadGrid .dpadSurface .leftButton:hover .figTriangle {
+.left .bottom .dpadGrid .dpadSurface .leftButton.pressed .figTriangle {
   border-right-color: var(--white);
 }
 
@@ -594,23 +614,8 @@ body {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
   grid-area: 3 / 3;
-  background-color: var(--blue);
+  background-color: var(--cyan);
   border-radius: 3% / 5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  overflow: hidden;
-}
-
-.left .border .screen img {
-  -webkit-transform: scale(2);
-          transform: scale(2);
 }
 
 .left .border .screenShadow {
@@ -619,7 +624,7 @@ body {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: 2 / 2 / span 2 / span 2;
-  background-color: var(--base-deep-shadow-color);
+  background-color: var(--gray);
   border-radius: 3% / 5%;
 }
 
@@ -646,8 +651,14 @@ body {
   background-color: var(--white);
   color: var(--black);
   outline: none;
-  font-size: 1.5vh;
-  font-family: "Press Start 2P", cursivo;
+  font-size: 1.8vh;
+  font-family: var(--normal-font);
+  font-weight: bold;
+}
+
+.left .border .bottomMenu .searchBar.error {
+  color: var(--base-color);
+  border-bottom-color: var(--base-color);
 }
 
 .right .frontalFace {
@@ -668,5 +679,38 @@ body {
 
 .white {
   background-color: rgba(255, 255, 255, 0.25);
+}
+
+.screen {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 3fr 16fr;
+      grid-template-rows: 3fr 16fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+.screen label {
+  -ms-grid-row: 1;
+  grid-area: 1;
+  font-size: 1.5vh;
+  font-family: var(--retro-font);
+  color: var(--white);
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: center;
+  padding-top: 1.2%;
+  padding-bottom: 0.6%;
+  background-color: var(--blue);
+}
+
+.screen img {
+  -ms-grid-row: 2;
+  grid-area: 2;
+  -webkit-transform: scale(200%);
+          transform: scale(200%);
+  visibility: hidden;
+  margin: auto;
 }
 /*# sourceMappingURL=index.css.map */

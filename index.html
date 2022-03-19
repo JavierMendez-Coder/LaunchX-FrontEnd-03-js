@@ -58,16 +58,20 @@
                 <div class="middlePad">
                   <div class="figCircle"></div>
                 </div>
-                <div class="topButton">
+                <div class="topButton" id="dpadTop" onclick="sectionDpad(true)">
                   <div class="figTriangle"></div>
                 </div>
-                <div class="rightButton">
+                <div
+                  class="rightButton"
+                  id="dpadRight"
+                  onclick="fetchDpad(true)"
+                >
                   <div class="figTriangle"></div>
                 </div>
-                <div class="bottomButton">
+                <div class="bottomButton" id="dpadBottom" onclick="sectionDpad(false)">
                   <div class="figTriangle"></div>
                 </div>
-                <div class="leftButton">
+                <div class="leftButton" id="dpadLeft" onclick="fetchDpad(false)">
                   <div class="figTriangle"></div>
                 </div>
               </div>
@@ -77,14 +81,15 @@
           <div class="border">
             <div class="screenShadow"></div>
             <div class="screen">
+              <label id="pokemonName"></label>
               <img src="" alt="Pokemon" id="pokemonImg" />
             </div>
             <div class="bottomMenu">
               <input
                 type="text"
-                placeholder="Search"
-                id="pokemonName"
-                name="pokemonName"
+                placeholder="Search ID or Name"
+                id="pokemonInput"
+                name="pokemonInput"
                 class="searchBar"
               />
             </div>
@@ -105,5 +110,6 @@
 
   <footer>
     <script src="./scripts/pokedex.js"></script>
+    <script src="./scripts/test.js"></script>
   </footer>
 </html>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&display=swap");
 
 :root {
   --base-highlighted-color: #fb9173;
@@ -6,20 +6,24 @@
   --base-shadow-color: #ca215a;
   --base-deep-shadow-color: #491556;
   --background-color: #0e0b4d;
-  --blue: #00abf6;
-  --green: #31f554;
   --orange: #fb8e55;
   --yellow: #f9ef61;
-  --black: #010950;
-  --gray: #142b5b;
+  --green: #31f554;
+  --cyan: #01d7fd;
+  --dark-cyan: #01b3d5;
+  --blue: #00abf6;
   --white: #f3f4e6;
+  --gray: #142b5b;
+  --black: #010950;
+  --normal-font: "Poppins";
+  --retro-font: "Press Start 2P", cursivo;
 }
 
 body {
   display: flex;
   justify-content: center;
   background-color: var(--background-color);
-  font-family: "Press Start 2P", cursivo;
+  font-family: var(--normal-font);
 }
 
 .device {
@@ -264,11 +268,17 @@ body {
           }
 
           &:hover {
-            grid-area: 2 / 4 / span 1 / span 2;
-
             .figTriangle {
               border-bottom-color: var(--white);
             }
+          }
+        }
+
+        .topButton.pressed {
+          grid-area: 2 / 4 / span 1 / span 2;
+
+          .figTriangle {
+            border-bottom-color: var(--white);
           }
         }
 
@@ -290,11 +300,17 @@ body {
           }
 
           &:hover {
-            grid-area: 4 / 5 / span 2 / span 3;
-
             .figTriangle {
               border-left-color: var(--white);
             }
+          }
+        }
+
+        .rightButton.pressed {
+          grid-area: 4 / 5 / span 2 / span 3;
+
+          .figTriangle {
+              border-left-color: var(--white);
           }
         }
 
@@ -316,11 +332,17 @@ body {
           }
 
           &:hover {
-            grid-area: 5 / 4 / span 3 / span 2;
-
             .figTriangle {
               border-top-color: var(--white);
             }
+          }
+        }
+
+        .bottomButton.pressed {
+          grid-area: 5 / 4 / span 3 / span 2;
+
+          .figTriangle {
+            border-top-color: var(--white);
           }
         }
 
@@ -342,11 +364,17 @@ body {
           }
 
           &:hover {
-            grid-area: 4 / 2 / span 2 / span 1;
-
             .figTriangle {
               border-right-color: var(--white);
             }
+          }
+        }
+
+        .leftButton.pressed {
+          grid-area: 4 / 2 / span 2 / span 1;
+
+          .figTriangle {
+            border-right-color: var(--white);
           }
         }
       }
@@ -390,21 +418,13 @@ body {
 
     .screen {
       grid-area: 3 / 3;
-      background-color: var(--blue);
+      background-color: var(--cyan);
       border-radius: 3% / 5%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-
-      img {
-        transform: scale(2);
-      }
     }
 
     .screenShadow {
       grid-area: 2 / 2 / span 2 / span 2;
-      background-color: var(--base-deep-shadow-color);
+      background-color: var(--gray);
       border-radius: 3% / 5%;
     }
 
@@ -423,8 +443,14 @@ body {
         background-color: var(--white);
         color: var(--black);
         outline: none;
-        font-size: 1.5vh;
-        font-family: "Press Start 2P", cursivo;
+        font-size: 1.8vh;
+        font-family: var(--normal-font);
+        font-weight: bold;
+      }
+
+      .searchBar.error {
+        color: var(--base-color);
+        border-bottom-color: var(--base-color);
       }
     }
   }
@@ -438,6 +464,9 @@ body {
     display: grid;
   }
 }
+
+// ------------------ TOOL CLASES -------------------
+
 .black {
   background-color: black;
 }
@@ -448,4 +477,37 @@ body {
 
 .white {
   background-color: rgba($color: #fff, $alpha: 0.25);
+}
+
+// ------------------ JS SCSS -------------------
+
+.dpadSurface {
+  .leftButton {
+  }
+}
+
+.screen {
+  display: grid;
+  grid-template-rows: 3fr 16fr;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+
+  label {
+    grid-area: 1;
+    font-size: 1.5vh;
+    font-family: var(--retro-font);
+    color: var(--white);
+    align-self: flex-end;
+    text-align: center;
+    padding-top: 1.2%;
+    padding-bottom: 0.6%;
+    background-color: var(--blue);
+  }
+
+  img {
+    grid-area: 2;
+    transform: scale(200%);
+    visibility: hidden;
+    margin: auto;
+  }
 }
