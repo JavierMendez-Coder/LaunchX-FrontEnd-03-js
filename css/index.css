@@ -807,6 +807,12 @@ body {
   background-color: var(--gray);
   -webkit-box-shadow: inset 0.7vh 0.7vh var(--black);
           box-shadow: inset 0.7vh 0.7vh var(--black);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
 .right .frontalFace .lines .buttonBoard {
