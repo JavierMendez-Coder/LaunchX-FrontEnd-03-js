@@ -8,19 +8,6 @@
   </head>
 
   <body>
-    <!--
-    <h1>Pokédex Launch X</h1>
-    <input
-      type="text"
-      placeholder="Charizard"
-      id="pokemonName"
-      name="pokemonName"
-    />
-    <br />
-    <img src="#" alt="Pokemon" id="pokemonImg" />
-    <br />
-    <button onclick="fetchPokemon()">Search</button>
-    -->
     <div class="device">
       <div class="left container">
         <div class="shadow"></div>
@@ -30,6 +17,22 @@
           <div class="top">
             <div class="trapezoidShadow"></div>
             <div class="trapezoid"></div>
+            <div class="circlesContainer white">
+              <div class="circle frame">
+                <div class="big blue circle">
+                  <div class="circle highlight"></div>
+                </div>
+              </div>
+              <div class="circle red">
+                <div class="circle highlight"></div>
+              </div>
+              <div class="circle yellow">
+                <div class="circle highlight"></div>
+              </div>
+              <div class="circle green">
+                <div class="circle highlight"></div>
+              </div>
+            </div>
           </div>
           <div class="bottom">
             <div
@@ -38,15 +41,15 @@
               onclick="fetchPokemon()"
             >
               <div class="buttonShadow"></div>
-              <div class="buttonSurface"></div>
+              <div class="buttonSurface" id="searchButtonSurface"></div>
             </div>
-            <div class="flatButtonL">
+            <div class="flatButtonL" id="resetButton">
               <div class="buttonShadow"></div>
-              <div class="buttonSurface"></div>
+              <div class="buttonSurface" id="resetButtonSurface"></div>
             </div>
-            <div class="flatButtonR">
+            <div class="flatButtonR" id="randomButton">
               <div class="buttonShadow"></div>
-              <div class="buttonSurface"></div>
+              <div class="buttonSurface" id="randomButtonSurface"></div>
             </div>
             <div class="deviceTag"></div>
             <div class="dpadGrid">
@@ -68,10 +71,18 @@
                 >
                   <div class="figTriangle"></div>
                 </div>
-                <div class="bottomButton" id="dpadBottom" onclick="sectionDpad(false)">
+                <div
+                  class="bottomButton"
+                  id="dpadBottom"
+                  onclick="sectionDpad(false)"
+                >
                   <div class="figTriangle"></div>
                 </div>
-                <div class="leftButton" id="dpadLeft" onclick="fetchDpad(false)">
+                <div
+                  class="leftButton"
+                  id="dpadLeft"
+                  onclick="fetchDpad(false)"
+                >
                   <div class="figTriangle"></div>
                 </div>
               </div>
@@ -103,13 +114,37 @@
       </div>
       <div class="right container">
         <div class="shadow"></div>
-        <div class="frontalFace"></div>
+        <div class="frontalFace">
+          <div class="left shadow"></div>
+          <div class="lines">
+            <div class="firstRow">
+              <div class="screen"></div>
+            </div>
+            <div class="secondRow">
+              <div class="buttonBoard">
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+                <div class="button"></div>
+              </div>
+            </div>
+            <div class="fifthRow">
+              <div class="small screen"></div>
+              <div class="small screen"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
 
   <footer>
     <script src="./scripts/pokedex.js"></script>
-    <script src="./scripts/test.js"></script>
   </footer>
 </html>

@@ -3,6 +3,10 @@ const fetchPokemon = async () => {
   var input = pokemonInput.value.toLowerCase();
   var pokemonId = undefined;
 
+  if (input === "") {
+    return;
+  }
+
   const numberRegex = /^\d+$/;
   if (numberRegex.test(input)) {
     zerosRegex = /^0+/;
@@ -19,30 +23,26 @@ const fetchPokemon = async () => {
     loadName();
 
     pokemonInput.classList.add("error");
-  //  PokeDex.sectionA = { pokemonId: undefined };
     return;
   }
   const data = await response.json();
 
-  // PokeDex.sectionA = { pokemonId: data.id };
   pokemonId = data.id;
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
 
   pokemonInput.value = "";
-  // save value with function
+  setCurrentId(pokemonId);
 };
 
 const fetchDpad = async (isRight) => {
-  if (PokeDex.sectionA.pokemonId === undefined) {
+  var newPokemonId = getCurrentId();
+  if (newPokemonId === undefined) {
     return;
   }
 
-  const newPokemonId =
-    isRight === true
-      ? PokeDex.sectionA.pokemonId + 1
-      : PokeDex.sectionA.pokemonId - 1;
+  newPokemonId += isRight ? 1 : -1;
 
   const url = `https://pokeapi.co/api/v2/pokemon/${newPokemonId}`;
   const response = await fetch(url).then((response) => response);
@@ -52,24 +52,17 @@ const fetchDpad = async (isRight) => {
   }
   const data = await response.json();
 
-  PokeDex.sectionA = { pokemonId: newPokemonId };
+  setCurrentId(newPokemonId);
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
 };
 
 const sectionDpad = async (isTop) => {
-  //  if (isTop) {
-  //    if (PokeDex.sectionB.pokemonId === undefined) {
-  //      PokeDex.sectionB = { pokemonId: 10001 };
-  //    }
-  //  } else {
-  //    if (PokeDex.sectionA.pokemonId === undefined) {
-  //      PokeDex.sectionA = { pokemonId: 1 };
-  //    }
-  //  }
+  changeSection();
+  const pokemonId = getCurrentId();
 
-  const url = `https://pokeapi.co/api/v2/pokemon/${PokeDex.sectionpokemonId}`;
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
   const response = await fetch(url).then((response) => response);
 
   if (!response.ok) {
@@ -79,6 +72,8 @@ const sectionDpad = async (isTop) => {
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
+
+  setCurrentId(pokemonId);
 };
 
 const loadName = (id, name) => {
@@ -110,11 +105,43 @@ const loadImage = (imageUrl) => {
   pokemonImg.src = imageUrl;
 };
 
+const setCurrentId = (currentId) => {
+  if (currentId <= 10000) {
+    PokeDex.sectionA.pokemonId = currentId;
+    if (PokeDex.sectionB.current) {
+      changeSection();
+    }
+  } else {
+    PokeDex.sectionB.pokemonId = currentId;
+    if (PokeDex.sectionA.current) {
+      changeSection();
+    }
+  }
+};
+
+const getCurrentId = () => {
+  if (PokeDex.sectionA.current) {
+    return PokeDex.sectionA.pokemonId;
+  } else {
+    return PokeDex.sectionB.pokemonId;
+  }
+};
+
+const changeSection = () => {
+  if (PokeDex.sectionA.current) {
+    PokeDex.sectionA.current = false;
+    PokeDex.sectionB.current = true;
+  } else {
+    PokeDex.sectionA.current = true;
+    PokeDex.sectionB.current = false;
+  }
+};
+
 // Global variables
 
 var PokeDex = {
   sectionA: {
-    pokemonId: 1,
+    pokemonId: 1, // Randomize
     current: true,
   },
   sectionB: {
@@ -194,4 +221,46 @@ dpadLeft.addEventListener("mouseup", function handleMouseup(event) {
 
 dpadLeft.addEventListener("mouseleave", function handleMouseup(event) {
   dpadLeft.classList.remove("pressed");
+});
+
+const searchButton = document.getElementById("searchButton");
+const searchButtonSurface = document.getElementById("searchButtonSurface");
+searchButton.addEventListener("mousedown", function handleClick(event) {
+  searchButtonSurface.classList.add("pressed");
+});
+
+searchButton.addEventListener("mouseup", function handleMouseup(event) {
+  searchButtonSurface .classList.remove("pressed");
+});
+
+searchButton.addEventListener("mouseleave", function handleMouseup(event) {
+  searchButtonSurface.classList.remove("pressed");
+});
+
+const resetButton = document.getElementById("resetButton");
+const resetButtonSurface = document.getElementById("resetButtonSurface");
+resetButton.addEventListener("mousedown", function handleClick(event) {
+  resetButtonSurface.classList.add("pressed");
+});
+
+resetButton.addEventListener("mouseup", function handleMouseup(event) {
+  resetButtonSurface .classList.remove("pressed");
+});
+
+resetButton.addEventListener("mouseleave", function handleMouseup(event) {
+  resetButtonSurface.classList.remove("pressed");
+});
+
+const randomButton = document.getElementById("randomButton");
+const randomButtonSurface = document.getElementById("randomButtonSurface");
+randomButton.addEventListener("mousedown", function handleClick(event) {
+  randomButtonSurface.classList.add("pressed");
+});
+
+randomButton.addEventListener("mouseup", function handleMouseup(event) {
+  randomButtonSurface .classList.remove("pressed");
+});
+
+randomButton.addEventListener("mouseleave", function handleMouseup(event) {
+  randomButtonSurface.classList.remove("pressed");
 });

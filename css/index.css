@@ -5,6 +5,7 @@
   --base-shadow-color: #ca215a;
   --base-deep-shadow-color: #491556;
   --background-color: #0e0b4d;
+  --red: #fe1a55;
   --orange: #fb8e55;
   --yellow: #f9ef61;
   --green: #31f554;
@@ -25,6 +26,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: var(--background-color);
   font-family: var(--normal-font);
 }
@@ -39,8 +43,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transform: scale(1);
-          transform: scale(1);
 }
 
 .middle {
@@ -151,6 +153,92 @@ body {
   width: 27%;
 }
 
+.left .top .circlesContainer {
+  position: absolute;
+  top: 4.5vh;
+  left: 2.8vh;
+  height: 17vh;
+  width: 34vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.left .top .circlesContainer .circle {
+  width: 10%;
+  height: 20%;
+  border: 0.6vh solid var(--black);
+  border-radius: 100%;
+  -webkit-box-shadow: 0.3vh 0.3vh var(--base-deep-shadow-color);
+          box-shadow: 0.3vh 0.3vh var(--base-deep-shadow-color);
+}
+
+.left .top .circlesContainer .frame {
+  width: 52%;
+  height: 104%;
+  background-color: var(--white);
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0.8vh 0.8vh var(--base-deep-shadow-color);
+          box-shadow: 0.8vh 0.8vh var(--base-deep-shadow-color);
+}
+
+.left .top .circlesContainer .frame .circle {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.left .top .circlesContainer .big {
+  width: 60%;
+  height: 60%;
+  border-width: 0.8vh;
+}
+
+.left .top .circlesContainer .highlight {
+  width: 25%;
+  height: 25%;
+  border: none;
+  margin-top: 18%;
+  margin-left: 18%;
+  background-color: var(--white);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.left .top .circlesContainer .blue {
+  background-color: var(--blue);
+}
+
+.left .top .circlesContainer .red {
+  background-color: var(--red);
+}
+
+.left .top .circlesContainer .yellow {
+  background-color: var(--yellow);
+}
+
+.left .top .circlesContainer .green {
+  background-color: var(--green);
+}
+
+.left .top .circlesContainer .shadow {
+  background-color: var(--base-deep-shadow-color);
+}
+
 .left .dropShadow {
   -ms-grid-row: 13;
   -ms-grid-row-span: 3;
@@ -218,6 +306,10 @@ body {
 }
 
 .left .bottom .circleButton:hover .buttonSurface {
+  background-color: var(--white);
+}
+
+.left .bottom .circleButton .buttonSurface.pressed {
   -ms-grid-row: 3;
   -ms-grid-row-span: 16;
   -ms-grid-column: 3;
@@ -260,6 +352,10 @@ body {
 }
 
 .left .bottom .flatButtonL:hover .buttonSurface {
+  background-color: var(--white);
+}
+
+.left .bottom .flatButtonL .buttonSurface.pressed {
   -ms-grid-row: 6;
   -ms-grid-row-span: 10;
   -ms-grid-column: 3;
@@ -302,6 +398,10 @@ body {
 }
 
 .left .bottom .flatButtonR:hover .buttonSurface {
+  background-color: var(--white);
+}
+
+.left .bottom .flatButtonR .buttonSurface.pressed {
   -ms-grid-row: 6;
   -ms-grid-row-span: 10;
   -ms-grid-column: 3;
@@ -662,23 +762,102 @@ body {
 }
 
 .right .frontalFace {
-  border-top-right-radius: 5% 2.5%;
   grid-row: 2 / -2;
   background-color: var(--base-color);
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 0.02fr 0.96fr 0.02fr;
+      grid-template-columns: 0.02fr 0.96fr 0.02fr;
 }
 
-.black {
-  background-color: black;
+.right .frontalFace .left {
+  -ms-grid-row: 1;
+  grid-area: 1;
 }
 
-.gray {
-  background-color: #212121;
+.right .frontalFace .shadow {
+  background-color: var(--base-shadow-color);
 }
 
-.white {
-  background-color: rgba(255, 255, 255, 0.25);
+.right .frontalFace .lines {
+  -ms-grid-row: 1;
+  grid-area: 1;
+  width: 92.5%;
+  height: 91.5%;
+  border: 1vh solid var(--base-deep-shadow-color);
+  margin: auto;
+  border-top: 1vh solid var(--base-color);
+  border-bottom-left-radius: 4%;
+  border-bottom-right-radius: 4%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 2fr 7fr 1fr 7fr 1fr 0.8fr 1fr 5fr 4fr 4fr 4fr;
+      grid-template-rows: 2fr 7fr 1fr 7fr 1fr 0.8fr 1fr 5fr 4fr 4fr 4fr;
+  -ms-grid-columns: 1fr 14fr 1fr;
+      grid-template-columns: 1fr 14fr 1fr;
+}
+
+.right .frontalFace .lines .screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 4% / 17%;
+  background-color: var(--gray);
+  -webkit-box-shadow: inset 0.7vh 0.7vh var(--black);
+          box-shadow: inset 0.7vh 0.7vh var(--black);
+}
+
+.right .frontalFace .lines .buttonBoard {
+  width: 100%;
+  height: 100%;
+  border-radius: 4% / 17%;
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.right .frontalFace .lines .buttonBoard .button {
+  width: 90%;
+  height: 83%;
+  background-color: var(--blue);
+  border-top: 0.5vh solid var(--cyan);
+  border-left: 0.5vh solid var(--cyan);
+  border-bottom: 0.5vh solid var(--gray);
+  border-right: 0.5vh solid var(--gray);
+}
+
+.right .frontalFace .lines .small {
+  width: 45%;
+}
+
+.right .frontalFace .lines .firstRow {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: 2 / 2;
+}
+
+.right .frontalFace .lines .secondRow {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: 4 / 2;
+}
+
+.right .frontalFace .lines .fifthRow {
+  -ms-grid-row: 10;
+  -ms-grid-column: 2;
+  grid-area: 10 / 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .screen {
@@ -691,7 +870,7 @@ body {
   overflow: hidden;
 }
 
-.screen label {
+.screen #pokemonName {
   -ms-grid-row: 1;
   grid-area: 1;
   font-size: 1.5vh;
@@ -705,12 +884,24 @@ body {
   background-color: var(--blue);
 }
 
-.screen img {
+.screen #pokemonImg {
   -ms-grid-row: 2;
   grid-area: 2;
   -webkit-transform: scale(200%);
           transform: scale(200%);
   visibility: hidden;
   margin: auto;
+}
+
+.black {
+  background-color: black;
+}
+
+.gray {
+  background-color: #212121;
+}
+
+.white {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 /*# sourceMappingURL=index.css.map */
