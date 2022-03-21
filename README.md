@@ -48,7 +48,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://javiermendez-coder.github.io/LaunchX-FrontEnd-03-js)
+[![PokéDex Screen Shot][product-screenshot]](https://javiermendez-coder.github.io/LaunchX-FrontEnd-03-js)
 
 Own take on the worldwide known device of the Pokémon franchise, the PokéDex. This project aims to design a functional PokéDex with the knowledge of HTML, CSS, and JavaScript gathered throughout multiple sessions of the Launch X's Front-end course. For more info about the assignment click [here][launchx-assignment].
 
@@ -82,8 +82,6 @@ I would like to acknowledge that this design is not original of mine, but one ba
   - [x] Host it on internet (link [here][pokedex-link])
   - [x] Search by ID or display a set of pokémons
 
-See the [open issues](https://github.com/javiermendez-coder/LaunchX-FrontEnd-03-js/issues) for a full list of proposed features (and known issues).
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -111,5 +109,5 @@ Project Link: [https://github.com/javiermendez-coder/LaunchX-FrontEnd-03-js](htt
 <!-- MARKDOWN LINKS & IMAGES -->
 [launchx-assignment]: https://github.com/LaunchX-InnovaccionVirtual/FrontEnd-Mision/tree/main/04%20-%20JS/practica
 [trippy-sun]: https://www.artstation.com/trippysun
-[product-screenshot]: images/miscellaneous/pok%C3%A9de-screenshot.png
+[product-screenshot]: images/pok%C3%A9dex-screenshot.png
 [pokedex-link]: https://javiermendez-coder.github.io/LaunchX-FrontEnd-03-js
