@@ -18,19 +18,24 @@ const fetchPokemon = async () => {
   const url = `https://pokeapi.co/api/v2/pokemon/${input}`;
   const response = await fetch(url).then((response) => response);
 
+  loadTypes();
   if (!response.ok) {
     loadImage();
     loadName();
+    loadBaseStats();
 
     pokemonInput.classList.add("error");
     return;
   }
+
   const data = await response.json();
 
   pokemonId = data.id;
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
+  loadTypes(data.types);
+  loadBaseStats(data.stats);
 
   pokemonInput.value = "";
   setCurrentId(pokemonId);
@@ -47,7 +52,9 @@ const fetchDpad = async (isRight) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${newPokemonId}`;
   const response = await fetch(url).then((response) => response);
 
+  loadTypes();
   if (!response.ok) {
+    loadBaseStats();
     return;
   }
   const data = await response.json();
@@ -56,6 +63,8 @@ const fetchDpad = async (isRight) => {
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
+  loadTypes(data.types);
+  loadBaseStats(data.stats);
 };
 
 const sectionDpad = async (isTop) => {
@@ -65,13 +74,17 @@ const sectionDpad = async (isTop) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
   const response = await fetch(url).then((response) => response);
 
+  loadTypes();
   if (!response.ok) {
+    loadBaseStats();
     return;
   }
   const data = await response.json();
 
   loadName(data.id, data.name);
   loadImage(data.sprites.front_default);
+  loadTypes(data.types);
+  loadBaseStats(data.stats);
 
   setCurrentId(pokemonId);
 };
@@ -103,6 +116,75 @@ const loadImage = (imageUrl) => {
   }
 
   pokemonImg.src = imageUrl;
+};
+
+const loadTypes = (types) => {
+  if (types === undefined) {
+    resetTypes();
+    return;
+  }
+
+  types.map((typeNo) => {
+    const type = document.getElementById(`${typeNo.type.name}Type`);
+    type.style.display = "flex";
+  });
+};
+
+const resetTypes = () => {
+  const types = [
+    "normal",
+    "fighting",
+    "flying",
+    "poison",
+    "ground",
+    "rock",
+    "bug",
+    "ghost",
+    "steel",
+    "fire",
+    "water",
+    "grass",
+    "electric",
+    "psychic",
+    "ice",
+    "dragon",
+    "dark",
+    "fairy",
+  ];
+
+  types.map((type) => {
+    const typeLabel = document.getElementById(`${type}Type`);
+    typeLabel.style.display = "none";
+  });
+};
+
+const loadBaseStats = (stats) => {
+  if (stats === undefined) {
+    resetBaseStats();
+    return;
+  }
+
+  stats.map((statNo) => {
+    const statLabel = document.getElementById(`${statNo.stat.name}Stat`);
+    const height = Math.round(statNo.base_stat * 0.555);
+    statLabel.style.height = `${height}%`;
+  });
+};
+
+const resetBaseStats = () => {
+  const list = [
+    "hpStat",
+    "attackStat",
+    "defenseStat",
+    "special-attackStat",
+    "special-defenseStat",
+    "speedStat",
+  ];
+
+  list.map((id) => {
+    const statLabel = document.getElementById(`${id}`);
+    statLabel.style.height = `0%`;
+  });
 };
 
 const setCurrentId = (currentId) => {

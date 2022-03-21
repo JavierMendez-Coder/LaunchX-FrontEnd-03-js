@@ -21,7 +21,6 @@ const makeChildAButton = (list) => {
   list.map((idList) => {
     const elementList = idList.map((id) => document.getElementById(id));
     elementList[0].addEventListener("mousedown", function handleClick(event) {
-      console.log("hi");
       elementList[1].classList.add("pressed");
     });
     elementList[0].addEventListener("mouseup", function handleClick(event) {
